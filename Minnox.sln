@@ -1,15 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minnox.WebInterface", "Minnox.WebInterface\Minnox.WebInterface.csproj", "{A1F6A123-3439-4E44-A2B7-68E7B1B13D0B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minnox.Interfaces", "Minnox.Interfaces\Minnox.Interfaces.csproj", "{6EB0862E-FF8C-42D6-9523-78CC81386489}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minnox.HouseRules", "Minnox.HouseRules\Minnox.HouseRules.csproj", "{E4273A5E-89F1-4670-85D6-2F08E70B8489}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F8B301C5-C1BC-4664-84E7-5B034046881A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minnox.Tests", "Minnox.Tests\Minnox.Tests.csproj", "{764ED3AC-1322-467E-8CEF-243FEA0E05E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minnox.Runner", "Minnox.Runner\Minnox.Runner.csproj", "{53FEBF2F-A716-4400-A7CA-573A5EC18B2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minnox.Core", "Minnox.Core\Minnox.Core.csproj", "{113521B4-D56D-4FC8-8569-7B082C21ECD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minnox.WebInterface", "Minnox.WebInterface\Minnox.WebInterface.csproj", "{D2F4C90E-9914-475B-B57B-617E1B13B74A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,27 +15,24 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A1F6A123-3439-4E44-A2B7-68E7B1B13D0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A1F6A123-3439-4E44-A2B7-68E7B1B13D0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A1F6A123-3439-4E44-A2B7-68E7B1B13D0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A1F6A123-3439-4E44-A2B7-68E7B1B13D0B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6EB0862E-FF8C-42D6-9523-78CC81386489}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6EB0862E-FF8C-42D6-9523-78CC81386489}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6EB0862E-FF8C-42D6-9523-78CC81386489}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6EB0862E-FF8C-42D6-9523-78CC81386489}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E4273A5E-89F1-4670-85D6-2F08E70B8489}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E4273A5E-89F1-4670-85D6-2F08E70B8489}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E4273A5E-89F1-4670-85D6-2F08E70B8489}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E4273A5E-89F1-4670-85D6-2F08E70B8489}.Release|Any CPU.Build.0 = Release|Any CPU
 		{764ED3AC-1322-467E-8CEF-243FEA0E05E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{764ED3AC-1322-467E-8CEF-243FEA0E05E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{764ED3AC-1322-467E-8CEF-243FEA0E05E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{764ED3AC-1322-467E-8CEF-243FEA0E05E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53FEBF2F-A716-4400-A7CA-573A5EC18B2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53FEBF2F-A716-4400-A7CA-573A5EC18B2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53FEBF2F-A716-4400-A7CA-573A5EC18B2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53FEBF2F-A716-4400-A7CA-573A5EC18B2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{113521B4-D56D-4FC8-8569-7B082C21ECD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{113521B4-D56D-4FC8-8569-7B082C21ECD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{113521B4-D56D-4FC8-8569-7B082C21ECD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{113521B4-D56D-4FC8-8569-7B082C21ECD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2F4C90E-9914-475B-B57B-617E1B13B74A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2F4C90E-9914-475B-B57B-617E1B13B74A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2F4C90E-9914-475B-B57B-617E1B13B74A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2F4C90E-9914-475B-B57B-617E1B13B74A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{764ED3AC-1322-467E-8CEF-243FEA0E05E9} = {F8B301C5-C1BC-4664-84E7-5B034046881A}
 	EndGlobalSection
 EndGlobal
