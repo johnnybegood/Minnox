@@ -166,39 +166,15 @@
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\devices.js.map">
-      <DependentUpon>devices.ts</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\backbone.js" />
     <Content Include="Scripts\backbone.min.js" />
-    <Content Include="Scripts\devices.js">
-      <DependentUpon>devices.ts</DependentUpon>
-    </Content>
-    <Content Include="Scripts\devices.min.js">
-      <DependentUpon>devices.ts</DependentUpon>
-    </Content>
-    <Content Include="Scripts\devices.ts" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\pages.devicePage.js" />
     <TypeScriptCompile Include="Scripts\backbone.d.ts" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\jquery.d.ts" />
-    <Content Include="Scripts\Models\definition.js">
-      <DependentUpon>definition.ts</DependentUpon>
-    </Content>
-    <Content Include="Scripts\Models\definition.min.js">
-      <DependentUpon>definition.ts</DependentUpon>
-    </Content>
-    <Content Include="Scripts\Models\definition.ts" />
-    <Content Include="Scripts\Models\device.js">
-      <DependentUpon>device.ts</DependentUpon>
-    </Content>
-    <Content Include="Scripts\Models\device.min.js">
-      <DependentUpon>device.ts</DependentUpon>
-    </Content>
-    <Content Include="Scripts\Models\device.ts" />
     <Content Include="Scripts\underscore.js" />
     <Content Include="Scripts\underscore.min.js" />
     <Content Include="Web.config" />
