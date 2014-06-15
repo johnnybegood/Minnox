@@ -2,6 +2,7 @@
 'use strict';
 
 require.config({
+	baseUrl: '/js',
     shim: {
     },
     paths: {
@@ -12,7 +13,11 @@ require.config({
 });
 
 require([
-    'backbone'
-], function (Backbone) {
-    Backbone.history.start();
+    'backbone',
+    'js/routes/minnox.js'
+], function (Backbone, Router) {
+	var router = new Router();
+	router.initialize();
+
+    Backbone.history.start({pushstate : true});
 });
