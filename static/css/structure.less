@@ -1,0 +1,42 @@
+@header-height: 64px;
+@aside-width: 250px;
+
+body {
+	background: @background-color;
+}
+
+.content {
+	margin-left: @aside-width;
+	padding: 0 10px;
+
+	.header-nav {
+		margin: 0 -8px;
+		padding: 0;
+		height: @header-height;
+		line-height: @header-height;
+		border-bottom: 1px solid @border-color;
+		background: white;
+
+		.nav-list {
+			margin: 0 16px;
+			float: right;
+			list-style: none;
+
+			li {
+				margin: 0;
+				padding: 0;
+			}
+		}
+	}
+}
+
+/* ==========================================================================
+   Browse Happy prompt
+   ========================================================================== */
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
