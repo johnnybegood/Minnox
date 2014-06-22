@@ -32,7 +32,7 @@ module.exports = function(grunt) {
     },
 
     jshint: {
-      files: ['Gruntfile.js', 'js/src/**/*.js', '!js/ext/*.js'],
+      files: ['Gruntfile.js', 'js/**/*.js', '!js/templates.js', '!js/ext/*.js'],
       options: {
         // options here to override JSHint defaults
         globals: {
@@ -73,10 +73,21 @@ module.exports = function(grunt) {
 
     watch: {
       src: {
-        files: ['js/**/*.js', 'css/*.less', '*.html', 'Gruntfile.js'],
+        files: ['js/**/*.js', 'css/*.less', '*.html', 'Gruntfile.js', '!js/templates.js', 'js/templates/*.hbs'],
         tasks: ['default'],
         options: { livereload: true}
       },  
+    },
+
+    handlebars: {
+      compile: {
+        options: {
+          amd: true
+        },
+        files: {
+          "js/templates.js": "js/templates/*.hbs",
+        }
+      }
     }
   });
 
@@ -89,14 +100,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-responsive-images');
   grunt.loadNpmTasks('grunt-wiredep');
+  grunt.loadNpmTasks('grunt-contrib-handlebars');
 
   // Default task(s).
-  grunt.registerTask('default', ['svgmin', 'less', 'jshint', 'wiredep']);
-
-  // Watch task(s)
-  grunt.registerTask("reload", ["default", "watch"]);
+  grunt.registerTask('default', ['svgmin', 'less', 'jshint', 'wiredep', 'handlebars']);
 
   // Host task(s)
-  grunt.registerTask("host", ["default", "connect", "reload"]);
+  grunt.registerTask("host", ["default", "connect", "watch"]);
 
 };

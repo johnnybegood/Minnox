@@ -1,0 +1,15 @@
+<h1 class="page-title">Listen to music</h1>
+<div id="music-shortcuts">
+	{{#each shortcuts}}
+		<div class="music-shortcut"> 
+			{{> music-shortcut}}
+		</div>
+	{{/each}}
+
+	<div class="music-shortcut music-shortcut-empty">
+		<div class="music-shortcut-logo">
+			TODO
+		</div>
+		<a href="/music/shortcut/new">Add shortcut</a>
+	</div>
+</div>

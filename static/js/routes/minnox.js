@@ -2,10 +2,11 @@ define([
     'jquery',
     'backbone'
 ], function ($, Backbone) {
-    'use strict';
-
+    
     var MinnoxRouter = Backbone.Router.extend({
     	initialize: function (){
+    		_.bind(this.loadView, this);
+
 	        // setup the ajax links for the html5 push navigation
 	        $("body").on("click","a:not(a[data-bypass])",function(e){
 	                // block the default link behavior
@@ -16,15 +17,42 @@ define([
 	                Backbone.history.navigate(href,true);
 	        });
 	    },
+
+	    currentView : {},
+
         routes: {
         	'':'dashboard',
-        	'music':'music'
+        	'music':'music',
+            'gates': 'gates'
         },
         dashboard : function() {
-        	$('.page-title').text("Dashboard (aka Home)");
+        	require(["views/home"], this.loadView);
         },
+
         music : function() {
-        	$('.page-title').text("Music page");
+        	require(["views/music"], this.loadView);
+        },
+
+        gates : function() {
+            require(["controllers/gates"], this.loadController);
+        },
+
+        loadView : function (View, parameters) {
+        	if(this.currentView) { this.currentView.remove(); }
+        	this.currentView = new View();
+
+        	$("#contentHolder").empty().append(this.currentView.render());
+
+        },
+
+        loadController: function (Controller)
+        {
+            var me = this;
+
+            if(me.currentView) { me.currentView.remove(); }
+            me.currentView = Controller.index();
+
+            $("#contentHolder").empty().append(this.currentView.render());
         }
 
     });

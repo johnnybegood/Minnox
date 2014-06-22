@@ -1,0 +1,10 @@
+<h1 class="page-title">Gate Automation</h1>
+
+{{#each this}}
+	<div class="col-3 block" data-gateid="{{id}}">
+		<h2>{{name}}</h2>
+		<ul class="block-actions">
+			<li><a href="{{url}}/timers/add">Add timer</a></li>
+		</ul>
+	</div>
+{{/each}}
