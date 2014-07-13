@@ -1,19 +1,12 @@
 define([
-    'collections/gate',
+    'models/gate-settings',
     'views/gates'
-], function (Collection, View) {
+], function (Settings, View) {
 
 	var gatesController = {
 		index: function () {
-			var model = new Collection([
-				{ id: 1, name: 'Gate 1'},
-				{ id: 2, name: 'Gate 2'}
-			]);
-			
-			// model.reset([
-			// 	{ id: 1, name: 'Gate 1'},
-			// 	{ id: 2, name: 'Gate 2'}
-			// ]);
+		    var model = new Settings();
+		    model.fetch();
 
 			return new View({model: model});
 		}

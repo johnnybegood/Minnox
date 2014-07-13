@@ -6,7 +6,7 @@ define([
 ], function (_, Backbone) {
    
     var GateModel = Backbone.Model.extend({
-        url: '/gates',
+        url: '/api/gate',
 
         initialize: function() {
         },

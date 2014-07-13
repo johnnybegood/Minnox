@@ -1,10 +1,17 @@
 <h1 class="page-title">Gate Automation</h1>
 
-{{#each this}}
-	<div class="col-3 block" data-gateid="{{id}}">
-		<h2>{{name}}</h2>
-		<ul class="block-actions">
-			<li><a href="{{url}}/timers/add">Add timer</a></li>
-		</ul>
-	</div>
-{{/each}}
+<table>
+    <caption>Current Settings</caption>
+    <tbody>
+        <tr>
+            <th>Time on gate</th>
+            <td>{{DeviceTime}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="block-actions">
+    <ul>
+        <li><a id="open-action" href="/api/gate/open">Open gate</a></li>
+    </ul>
+</div>

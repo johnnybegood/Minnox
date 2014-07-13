@@ -8,11 +8,12 @@ define([
     		_.bind(this.loadView, this);
 
 	        // setup the ajax links for the html5 push navigation
-	        $("body").on("click","a:not(a[data-bypass])",function(e){
+	        $("body").on("click","a:not(a[data-bypass]):not(a[href^='/api'])",function(e){
+                    // take the href of the link clicked
+                    var href = $(this).attr("href");
 	                // block the default link behavior
 	                e.preventDefault();
-	                // take the href of the link clicked
-	                var href = $(this).attr("href");
+	                
 	                // pass this link to Backbone
 	                Backbone.history.navigate(href,true);
 	        });

@@ -1,3 +1,4 @@
+using Minnox.Server.Models;
 using System;
 
 namespace Minnox.Server.Connectors
@@ -6,5 +7,6 @@ namespace Minnox.Server.Connectors
     {
         void OpenGate();
         void Connect(string port);
+        GateSettings Status();
     }
 }

@@ -2,8 +2,9 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'templates'
-], function ($, _, Backbone, JST, options) {
+    'templates',
+    'amplify'
+], function ($, _, Backbone, JST, amplify, options) {
 
 	var HomeView = Backbone.View.extend({
         template: JST['js/templates/gates.hbs'],
@@ -14,7 +15,9 @@ define([
 
         className: '',
 
-        events: {},
+        events: {
+            'click #open-action': 'openGate'
+        },
 
         initialize: function () {
             if (options)
@@ -27,7 +30,12 @@ define([
 
         render: function () {
             return this.$el.html(this.template(this.model.toJSON()));
-        }
+        },
+
+	    openGate : function (e) {
+            amplify.request("gate-open");
+            e.preventDefault();
+	    }
     });
 
     return HomeView;

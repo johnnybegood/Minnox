@@ -1,6 +1,7 @@
 ﻿using System;
 using CommandMessenger;
 using CommandMessenger.TransportLayer;
+using Minnox.Server.Models;
 
 namespace Minnox.Server.Connectors.Gate
 {
@@ -36,9 +37,9 @@ namespace Minnox.Server.Connectors.Gate
             _messenger.SendCommand(new SendCommand((int)Commands.TriggerManualCommand,(int)Commands.StatusOk, DefaultTimeout));
         }
 
-        public Status Status()
+        public GateSettings Status()
         {
-            return new Status();
+            return new GateSettings { DeviceTime = DateTime.Now };
         }
 
         #region IDisposable Support

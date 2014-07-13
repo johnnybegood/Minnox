@@ -1,4 +1,5 @@
 ﻿using Minnox.Server.Connectors;
+using Minnox.Server.Models;
 using System.Net.Http;
 using System.Web.Http;
 
@@ -21,6 +22,13 @@ namespace Minnox.Server.Api
             _gateConnector.OpenGate();
 
             return new HttpResponseMessage(System.Net.HttpStatusCode.OK);
+        }
+
+        [Route()]
+        [HttpGet()]
+        public GateSettings GetSettings()
+        {
+            return _gateConnector.Status();
         }
     }
 }
