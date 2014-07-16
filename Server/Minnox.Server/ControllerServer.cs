@@ -29,8 +29,7 @@ namespace Minnox.Server
 
         public void Start(bool launchBrowser = false)
         {
-            //_connector = new GateConnector();
-            _connector.Connect("COM3");
+            _connector.Connect("COM4");
 
             var httpConfiguration = new HttpConfiguration();
             httpConfiguration.MapHttpAttributeRoutes();

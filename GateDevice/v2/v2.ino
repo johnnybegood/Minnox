@@ -39,7 +39,7 @@ void setup() {
   pinMode(outputLed, OUTPUT);
   pinMode(inputPin, INPUT);
 
-  Serial.begin(115200);
+  Serial.begin(9600);
 
   cmdMessenger.attach(unkownCommand);
   cmdMessenger.attach(kTriggerManualCommand, onTriggerManualCommand);

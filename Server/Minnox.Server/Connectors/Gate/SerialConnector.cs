@@ -5,7 +5,7 @@ using Minnox.Server.Models;
 
 namespace Minnox.Server.Connectors.Gate
 {
-    internal class Connector : IGateConnector
+    internal class SerialConnectorConnector : IGateConnector
     {
         private const int DefaultTimeout = 2000;
         private SerialTransport _transport;
@@ -17,7 +17,7 @@ namespace Minnox.Server.Connectors.Gate
         /// <param name="port"></param>
         public void Connect(string port)
         {
-            var serialSettings = new SerialSettings { PortName = "COM3", BaudRate = 115200, DtrEnable = false };
+            var serialSettings = new SerialSettings { PortName = "COM3", BaudRate = 9600, DtrEnable = false };
 
             _transport = new SerialTransport { CurrentSerialSettings = serialSettings };
             _messenger = new CmdMessenger(_transport) { BoardType = BoardType.Bit16 };

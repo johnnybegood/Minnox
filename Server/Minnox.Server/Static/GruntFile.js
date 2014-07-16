@@ -108,4 +108,7 @@ module.exports = function(grunt) {
   // Host task(s)
   grunt.registerTask("host", ["default", "connect", "watch"]);
 
+  // Reload task(s)
+  grunt.registerTask("auto", ["default", "watch"]);
+
 };
