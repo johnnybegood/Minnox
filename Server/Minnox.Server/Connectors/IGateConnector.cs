@@ -1,12 +1,10 @@
-using Minnox.Server.Models;
 using System;
 
 namespace Minnox.Server.Connectors
 {
     public interface IGateConnector : IDisposable
     {
-        void OpenGate();
+        void OpenGate(byte[] gateAddress);
         void Connect(string port);
-        GateSettings Status();
     }
 }

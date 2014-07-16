@@ -8,19 +8,20 @@ namespace Minnox.Server.Connectors.Gate
 {
     class XBeeConnector : IGateConnector
     {
+        private const string lockPort = "D0";
+        private static byte[] powerOnCommand = new byte[] { 0x05 };
+        private static byte[] powerOffCommand = new byte[] { 0x04 };
+
         private IXBeeConnection _connection;
         private XBeeApi _api;
 
-        public void OpenGate()
+        public void OpenGate(byte[] gateAddress)
         {
-            var gate1 = new XBeeAddress64(0x00, 0x13, 0xA2, 0x00, 0x40, 0xB7, 0xDB, 0x09);
+            var address = new XBeeAddress64(gateAddress);
 
-            var gate1OnCommand = new RemoteAtCommand("D0", gate1, new byte[] { 0x05 });
-            var gate1OffCommand = new RemoteAtCommand("D0", gate1, new byte[] { 0x04 });
-
-            _api.BeginSend(gate1OnCommand);
+            _api.BeginSend(new RemoteAtCommand(lockPort, address, powerOnCommand));
             Thread.Sleep(2000);
-            _api.BeginSend(gate1OffCommand);
+            _api.BeginSend(new RemoteAtCommand(lockPort, address, powerOffCommand));
         }
 
         public void Connect(string port)
@@ -28,11 +29,6 @@ namespace Minnox.Server.Connectors.Gate
             _connection = new SerialConnection(port, 9600);
             _connection.Open();
             _api = new XBeeApi(_connection);
-        }
-
-        public GateSettings Status()
-        {
-            return new GateSettings();
         }
 
         #region IDisposable Support

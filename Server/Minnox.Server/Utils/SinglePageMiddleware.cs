@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Minnox.Server
+namespace Minnox.Server.Utils
 {
     /// <summary>
     /// Redirect all pages to the root page
