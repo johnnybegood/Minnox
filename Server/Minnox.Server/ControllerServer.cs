@@ -9,6 +9,7 @@ using Ninject.Web.Common.OwinHost;
 using Ninject.Web.WebApi.OwinHost;
 using Owin;
 using System;
+using System.Data.Entity;
 using System.Diagnostics;
 using System.Web.Http;
 
