@@ -1,0 +1,18 @@
+<table>
+	<thead>
+		<tr>
+			<th></th>
+			<th>Address</th>
+	</thead>
+	<tbody>
+		{{#each discoverdGate}}
+			<tr>
+				<td><input type="radio" name="gate-address" value="{{address}}" id="gate-{{adress}}"/></td>
+				<td><label for="gate-{{adress}}">{{friendlyName}}</label></td>
+			</tr>
+		{{/each}}
+	</tbody>
+</table>
+<div class="actions">
+	<a class="action" id="select-discoverd">Next</a>
+</div>

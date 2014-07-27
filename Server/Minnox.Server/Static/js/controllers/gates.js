@@ -1,11 +1,11 @@
 define([
-    'models/gate-settings',
+    'collections/gate-device',
     'views/gates'
-], function (Settings, View) {
+], function (GateCollection, View) {
 
 	var gatesController = {
 		index: function () {
-		    var model = new Settings();
+		    var model = new GateCollection();
 		    model.fetch();
 
 			return new View({model: model});
@@ -13,5 +13,4 @@ define([
 	};
 
 	return gatesController;
-
 });

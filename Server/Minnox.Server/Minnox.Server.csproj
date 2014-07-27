@@ -127,6 +127,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Gate\DiscoveredGate.cs" />
     <Compile Include="Api\GateController.cs" />
     <Compile Include="Connectors\Gate\FakeGateComnector.cs" />
     <Compile Include="Connectors\Gate\XBeeConnector.cs" />
@@ -1811,10 +1812,11 @@
     <Content Include="Static\css\Minnox.Static.min.css" />
     <Content Include="Static\GruntFile.js" />
     <Content Include="Static\index.html" />
+    <Content Include="Static\js\collections\gate-device.js" />
     <Content Include="Static\js\collections\music-shortcut.js" />
     <Content Include="Static\js\controllers\gates.js" />
     <Content Include="Static\js\main.js" />
-    <Content Include="Static\js\models\gate-settings.js" />
+    <Content Include="Static\js\models\gate-device.js" />
     <Content Include="Static\js\models\music-shortcut.js" />
     <Content Include="Static\js\routes\minnox.js" />
     <Content Include="Static\js\templates.js" />

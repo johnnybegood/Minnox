@@ -49,7 +49,7 @@ namespace Minnox.Server
 
         public void Stop()
         {
-            _connector.Dispose();
+            _connector.Disconnect();
         }
     }
 }

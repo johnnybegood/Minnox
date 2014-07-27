@@ -1,10 +1,14 @@
 ﻿using NETMF.OpenSource.XBee;
 using NETMF.OpenSource.XBee.Api;
 using System.Threading;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Minnox.Server.Models.Gate;
 
 namespace Minnox.Server.Connectors.Gate
 {
-    class XBeeConnector : IGateConnector
+    public class XBeeConnector : IGateConnector, IDisposable
     {
         private const string lockPort = "D0";
         private static byte[] powerOnCommand = new byte[] { 0x05 };
@@ -25,8 +29,24 @@ namespace Minnox.Server.Connectors.Gate
         public void Connect(string port)
         {
             _connection = new SerialConnection(port, 9600);
-            _connection.Open();
             _api = new XBeeApi(_connection);
+            _api.Open();
+        }
+
+        public void Disconnect()
+        {
+            if (_api != null) _api.Close();
+        }
+
+        public IEnumerable<DiscoveredGate> Discover()
+        {
+            var discoverResult = _api.DiscoverNodes();
+
+            return discoverResult.Select(result => new DiscoveredGate
+            {
+                Address = result.NodeInfo.SerialNumber.Address,
+                FriendlyName = result.NodeInfo.NodeIdentifier ?? BitConverter.ToString(result.NodeInfo.SerialNumber.Address)
+            });
         }
 
         #region IDisposable Support
@@ -38,8 +58,7 @@ namespace Minnox.Server.Connectors.Gate
             {
                 if (disposing)
                 {
-                    if (_connection != null)
-                        _connection.Close();
+                    Disconnect();
                 }
 
                 // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.

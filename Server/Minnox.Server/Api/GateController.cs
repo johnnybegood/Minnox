@@ -1,6 +1,7 @@
 ﻿using Minnox.Server.Connectors;
 using Minnox.Server.Data;
 using Minnox.Server.Models.Gate;
+using System;
 using System.Linq;
 using System.Net.Http;
 using System.Web.Http;
@@ -34,6 +35,18 @@ namespace Minnox.Server.Api
         public GateDevice[] Index()
         {
             return _db.GateDevices.ToArray();
+        }
+
+        [Route("Discover")]
+        [HttpGet()]
+        public DiscoveredGate[] Discover()
+        {
+            var knowAdresses = _db.GateDevices.Select(dev => dev.Adress);
+            var discoverdAdresses = _gateConnector.Discover();
+
+            return discoverdAdresses
+                .Where(d => !knowAdresses.Contains(d.Address))
+                .ToArray();
         }
     }
 }

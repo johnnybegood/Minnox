@@ -9,7 +9,7 @@ namespace Minnox.Server
     {
         public override void Load()
         {
-            Kernel.Bind<IGateConnector>().To<Connectors.Gate.FakeGateConnector>().InSingletonScope();
+            Kernel.Bind<IGateConnector>().To<Connectors.Gate.XBeeConnector>().InSingletonScope();
             Kernel.Bind<IDatabaseContext>().To<DatabaseContext>().InRequestScope();
         }
     }

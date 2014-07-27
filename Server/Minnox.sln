@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minnox.Server", "Minnox.Ser
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NETMF.XBee", "NETMF.XBee\NETMF.XBee.csproj", "{C08D0ADD-B429-4C49-9737-F3FF0FD96DC3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minnox.Server.Tests", "Minnox.Server.Tests\Minnox.Server.Tests.csproj", "{DECA9E31-530C-4163-BD9E-3B7F15C94EA7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{C08D0ADD-B429-4C49-9737-F3FF0FD96DC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C08D0ADD-B429-4C49-9737-F3FF0FD96DC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C08D0ADD-B429-4C49-9737-F3FF0FD96DC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DECA9E31-530C-4163-BD9E-3B7F15C94EA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DECA9E31-530C-4163-BD9E-3B7F15C94EA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DECA9E31-530C-4163-BD9E-3B7F15C94EA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DECA9E31-530C-4163-BD9E-3B7F15C94EA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

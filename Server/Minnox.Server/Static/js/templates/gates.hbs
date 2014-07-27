@@ -1,17 +1,17 @@
 <h1 class="page-title">Gate Automation</h1>
 
-<table>
-    <caption>Current Settings</caption>
-    <tbody>
-        <tr>
-            <th>Time on gate</th>
-            <td>{{DeviceTime}}</td>
-        </tr>
-    </tbody>
-</table>
+{{#each gates}}
+    <div class="object-card">
+        <h2 class="card-title">{{name}}</h2>
+        <div class="card-body">
+            Address: {{addess}}
+        </div>
+    </div>
+{{/each}}
+
 
 <div class="block-actions">
     <ul>
-        <li><a id="open-action" href="/api/gate/open">Open gate</a></li>
+        <li><a href="/gates/add">Add a new Gate</a></li>
     </ul>
 </div>

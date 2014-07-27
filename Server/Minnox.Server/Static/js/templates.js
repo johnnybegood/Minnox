@@ -28,17 +28,65 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   }));
 
+this["JST"]["js/templates/gates-discovery.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\r\n			<tr>\r\n				<td><input type=\"radio\" name=\"gate-address\" value=\"";
+  if (helper = helpers.address) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.address); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" id=\"gate-";
+  if (helper = helpers.adress) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.adress); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\"/></td>\r\n				<td><label for=\"gate-";
+  if (helper = helpers.adress) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.adress); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\">";
+  if (helper = helpers.friendlyName) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.friendlyName); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</label></td>\r\n			</tr>\r\n		";
+  return buffer;
+  }
+
+  buffer += "<table>\r\n	<thead>\r\n		<tr>\r\n			<th></th>\r\n			<th>Address</th>\r\n	</thead>\r\n	<tbody>\r\n		";
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.discoverdGate), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n	</tbody>\r\n</table>\r\n<div class=\"actions\">\r\n	<a class=\"action\" id=\"select-discoverd\">Next</a>\r\n</div>";
+  return buffer;
+  });
+
 this["JST"]["js/templates/gates.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  var buffer = "", stack1, helper, functionType="function", escapeExpression=this.escapeExpression;
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
 
-
-  buffer += "<h1 class=\"page-title\">Gate Automation</h1>\r\n\r\n<table>\r\n    <caption>Current Settings</caption>\r\n    <tbody>\r\n        <tr>\r\n            <th>Time on gate</th>\r\n            <td>";
-  if (helper = helpers.DeviceTime) { stack1 = helper.call(depth0, {hash:{},data:data}); }
-  else { helper = (depth0 && depth0.DeviceTime); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\r\n    <div class=\"object-card\">\r\n        <h2 class=\"card-title\">";
+  if (helper = helpers.name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
-    + "</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n\r\n<div class=\"block-actions\">\r\n    <ul>\r\n        <li><a id=\"open-action\" href=\"/api/gate/open\">Open gate</a></li>\r\n    </ul>\r\n</div>\r\n";
+    + "</h2>\r\n        <div class=\"card-body\">\r\n            Address: ";
+  if (helper = helpers.addess) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.addess); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\r\n        </div>\r\n    </div>\r\n";
+  return buffer;
+  }
+
+  buffer += "<h1 class=\"page-title\">Gate Automation</h1>\r\n\r\n";
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.gates), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n\r\n\r\n<div class=\"block-actions\">\r\n    <ul>\r\n        <li><a href=\"/gates/add\">Add a new Gate</a></li>\r\n    </ul>\r\n</div>\r\n";
   return buffer;
   });
 

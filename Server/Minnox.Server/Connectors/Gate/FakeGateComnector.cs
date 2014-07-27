@@ -1,4 +1,9 @@
-﻿namespace Minnox.Server.Connectors.Gate
+﻿using Minnox.Server.Models.Gate;
+using System.Collections.Generic;
+using System.Threading;
+using System;
+
+namespace Minnox.Server.Connectors.Gate
 {
     public class FakeGateConnector : IGateConnector
     {
@@ -12,40 +17,15 @@
            //Do nothing
         }
 
-        #region IDisposable Support
-        private bool disposedValue = false; // To detect redundant calls
-
-        protected virtual void Dispose(bool disposing)
+        public IEnumerable<DiscoveredGate> Discover()
         {
-            if (!disposedValue)
-            {
-                if (disposing)
-                {
-                    // TODO: dispose managed state (managed objects).          
-                }
-
-                // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
-                // TODO: set large fields to null.
-
-                disposedValue = true;
-            }
+            Thread.Sleep(1000);
+            yield return new DiscoveredGate { Address = new byte[] { 0x10, 0x10, 0x10, 0x10, 0x10 }, FriendlyName = "FAKE" };
         }
 
-        // TODO: override a finalizer only if Dispose(bool disposing) above has code to free unmanaged resources. 
-        // ~FakeGateConnector() {
-        //   // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
-        //   Dispose(false);
-        // }
-
-        // This code added to correctly implement the disposable pattern.
-        public void Dispose()
+        public void Disconnect()
         {
-            // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
-            Dispose(true);
-            // TODO: tell GC not to call its finalizer when the above finalizer is overridden.
-            // GC.SuppressFinalize(this);
+            //Do nothing
         }
-        #endregion
-
     }
 }
