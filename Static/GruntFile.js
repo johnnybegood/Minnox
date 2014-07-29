@@ -66,7 +66,7 @@ module.exports = function(grunt) {
       server: {
         options: {
           port: 9999,
-          open: true,
+          open: false,
         }
       },
     },
@@ -74,7 +74,7 @@ module.exports = function(grunt) {
     watch: {
       src: {
         files: ['js/**/*.js', 'css/*.less', '*.html', 'Gruntfile.js', '!js/templates.js', 'js/templates/*.hbs'],
-        tasks: ['default'],
+        tasks: ['test'],
         options: { livereload: true}
       },  
     },
@@ -88,7 +88,22 @@ module.exports = function(grunt) {
           "js/templates.js": "js/templates/*.hbs",
         }
       }
-    }
+    },
+
+    jasmine: {
+        taskName: {
+          src: 'js/**/*.js',
+          options: {
+            specs: 'spec/*Spec.js',
+            helpers: 'spec/*Helper.js',
+            host: 'http://127.0.0.1:9999/',
+            template: require('grunt-template-jasmine-requirejs'),
+            templateOptions: {
+              requireConfigFile: 'js/main.js',
+            }
+          }
+        }
+      }
   });
 
   grunt.loadNpmTasks('grunt-contrib-less');
@@ -101,14 +116,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-responsive-images');
   grunt.loadNpmTasks('grunt-wiredep');
   grunt.loadNpmTasks('grunt-contrib-handlebars');
+  grunt.loadNpmTasks('grunt-contrib-jasmine');
 
   // Default task(s).
   grunt.registerTask('default', ['svgmin', 'less', 'jshint', 'wiredep', 'handlebars']);
 
+  // Testing task(s)
+  grunt.registerTask('test', ['default', 'jasmine']);
+
   // Host task(s)
-  grunt.registerTask("host", ["default", "connect", "watch"]);
-
-  // Reload task(s)
-  grunt.registerTask("auto", ["default", "watch"]);
-
+  grunt.registerTask("host", ["connect", "test", "watch"]);
 };

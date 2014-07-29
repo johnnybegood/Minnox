@@ -9,6 +9,7 @@ using Ninject.Web.Common.OwinHost;
 using Ninject.Web.WebApi.OwinHost;
 using Owin;
 using System;
+using System.Configuration;
 using System.Data.Entity;
 using System.Diagnostics;
 using System.Web.Http;
@@ -39,7 +40,7 @@ namespace Minnox.Server
             _webApp = WebApp.Start(Url, builder =>
                 builder
                         .Use<SinglePageMiddleware>(new[] { new PathString("/bower_components"), new PathString("/css"), new PathString("/js"), new PathString("/api") })
-                        .UseFileServer(new FileServerOptions { FileSystem = new PhysicalFileSystem("../../Static") })
+                        .UseFileServer(new FileServerOptions { FileSystem = new PhysicalFileSystem(ConfigurationManager.AppSettings["staticFiles"]) })
                         .UseNinjectMiddleware(() => _kernel)
                         .UseNinjectWebApi(httpConfiguration));
 
