@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Jasmine Spec Runner</title>
+
+  
+  <link rel="stylesheet" type="text/css" href=".grunt/grunt-contrib-jasmine/jasmine.css">
+  
+
+  <script src=".grunt\grunt-contrib-jasmine/require.js"></script>
+  <script>
+    require.onError = function(error) {
+      var message = error.requireType + ': ';
+      if (error.requireType === 'scripterror' || error.requireType === 'notloaded' && error.requireModules) {
+        message += 'Illegal path or script error: ' + '[\'' + error.requireModules.join("', '") + '\']';
+      } else {
+        message += error.message;
+      }
+
+      throw Error(message);
+    };
+  </script>
+
+  
+  
+  <script src=".grunt/grunt-contrib-jasmine/jasmine.js"></script>
+  
+  <script src=".grunt/grunt-contrib-jasmine/jasmine-html.js"></script>
+  
+  <script src=".grunt/grunt-contrib-jasmine/boot.js"></script>
+  
+  
+
+  <script>
+    
+
+    
+      require.config({
+  "baseUrl": "js/",
+  "shim": {
+    "handlebars": {
+      "exports": "Handlebars",
+      "init": function () {
+	        this.Handlebars = Handlebars;
+	        return this.Handlebars;
+	      }
+    },
+    "amplify": {
+      "deps": [
+        "jquery"
+      ],
+      "exports": "amplify"
+    }
+  },
+  "paths": {
+    "jquery": "../bower_components/jquery/dist/jquery",
+    "backbone": "../bower_components/backbone/backbone",
+    "underscore": "../bower_components/underscore/underscore",
+    "handlebars": "../bower_components/handlebars/handlebars",
+    "amplify": "../bower_components/amplify/lib/amplify",
+    "squire": "../bower_components/squire/src/Squire"
+  }
+});
+    
+  </script>
+
+  <script>
+    // Delay onLoad function until we are ready
+    var startTests = window.onload;
+    window.onload = null;
+
+    function launchTest() {
+    require([
+      
+        
+        'collections/gate-device' ,
+      
+        
+        'collections/gate-discovery' ,
+      
+        
+        'collections/music-shortcut' ,
+      
+        
+        'commands' ,
+      
+        
+        'controllers/gates' ,
+      
+        
+        'models/gate-device' ,
+      
+        
+        'models/gate-discovery' ,
+      
+        
+        'models/music-shortcut' ,
+      
+        
+        'routes/minnox' ,
+      
+        
+        'spec/GateDeviceSpec' ,
+      
+        
+        'spec/GateDiscoverySpec' ,
+      
+        
+        'templates' ,
+      
+        
+        'views/gates' ,
+      
+        
+        'views/home' ,
+      
+        
+        'views/music' 
+      
+    ],
+    function(){
+      require(['.grunt/grunt-contrib-jasmine/reporter.js'], function(){
+        startTests();
+      });
+    }
+    )
+  }
+  </script>
+
+  
+  <script>
+  launchTest();
+  </script>
+  
+</head>
+<body>
+</body>
+</html>
