@@ -1,0 +1,18 @@
+<table>
+	<thead>
+		<tr>
+			<th></th>
+			<th>Name</th>
+			<th>Address</th>
+		</tr>
+	</thead>
+	<tbody>
+	{{#each gates}}
+		<tr>
+			<td><a href="#" class="add-action" data-gateName="{{name}}" data-gateAdress="{{adress}}">Add</a></td>
+			<td>{{name}}</td>
+			<td>{{adress}}</td>
+		</tr>
+	{{/each}}
+	</tbody>
+</table>

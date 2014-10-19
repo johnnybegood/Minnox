@@ -28,6 +28,41 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return buffer;
   }));
 
+this["JST"]["js/templates/discover-gates.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, helper;
+  buffer += "\r\n		<tr>\r\n			<td><a href=\"#\" class=\"add-action\" data-gateName=\"";
+  if (helper = helpers.name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\" data-gateAdress=\"";
+  if (helper = helpers.adress) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.adress); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "\">Add</a></td>\r\n			<td>";
+  if (helper = helpers.name) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.name); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</td>\r\n			<td>";
+  if (helper = helpers.adress) { stack1 = helper.call(depth0, {hash:{},data:data}); }
+  else { helper = (depth0 && depth0.adress); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
+  buffer += escapeExpression(stack1)
+    + "</td>\r\n		</tr>\r\n	";
+  return buffer;
+  }
+
+  buffer += "<table>\r\n	<thead>\r\n		<tr>\r\n			<th></th>\r\n			<th>Name</th>\r\n			<th>Address</th>\r\n		</tr>\r\n	</thead>\r\n	<tbody>\r\n	";
+  stack1 = helpers.each.call(depth0, (depth0 && depth0.gates), {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\r\n	</tbody>\r\n</table>";
+  return buffer;
+  });
+
 this["JST"]["js/templates/gates-discovery.hbs"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};

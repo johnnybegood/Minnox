@@ -1,8 +1,9 @@
 define([
     'collections/gate-device',
     'views/gates',
-    'collections/gate-discovery'
-], function (GateDeviceCollection, IndexView, GateDiscoveryCollection) {
+    'collections/gate-discovery',
+    'views/discover-gates'
+], function (GateDeviceCollection, IndexView, GateDiscoveryCollection, DiscoveryView) {
 
 	var gatesController = {
 		index: function () {
@@ -15,6 +16,8 @@ define([
 		discover: function () {
 			var model = new GateDiscoveryCollection();
 			model.fetch();
+
+			return new DiscoveryView({model: model});
 		}
 	};
 

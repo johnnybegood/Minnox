@@ -124,7 +124,7 @@ module.exports = function(grunt) {
 
 
   // Default task(s).
-  grunt.registerTask('default', ['svgmin', 'less', 'jshint', 'wiredep', 'handlebars']);
+  grunt.registerTask('default', ['svgmin', 'less', 'jshint', 'handlebars']);
 
   // Testing task(s)
   grunt.registerTask('test', ['default', 'jasmine']);
